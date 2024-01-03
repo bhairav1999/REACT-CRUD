@@ -49,33 +49,53 @@ const UserFromData = () => {
 
   return (
     <>
-      <form action="">
-        <input
-          className="mt-1 px-3 py-2 bg-white border border-slate-300 w-4/12 rounded-md sm:text-sm focus:ring-1"
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <input
-          className="mt-1 px-3 py-2 bg-white border border-slate-300 w-4/12 rounded-md sm:text-sm focus:ring-1"
-          type="text"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-        <button
-          className="bg-indigo-500 px-8 py-2 rounded"
-          onClick={handleSubmit}
-        >
-          {editingIndex !== null ? "Update" : "Save"}
-        </button>
-      </form>
+      <div className="flex justify-center items-center bg-indigo-600 p-10">
+        <div className="w-96 p-6 shadow-lg bg-white rounded-md">
+          <h1 className="text-3xl  text-center font-semibold">Login From</h1>
+          <hr className="mt-3" />
+          <div className="mt-3">
+            <label htmlFor="" className="block text-base mb-2">
+              UserName
+            </label>
+            <input
+              type="text"
+              className="border w-full text-base px-2 py-1 focus:ring-0 focus:border-gray-600 "
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mt-3">
+            <label htmlFor="" className="block text-base mb-2">
+              password
+            </label>
+            <input
+              type="text"
+              className="border w-full text-base px-2 py-1 focus:ring-0 focus:border-gray-600 "
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="mt-5">
+            <button
+              className="border-2 border-indigo-700 bg-indigo-700 text-white py-1 w-full rounded-md hover:bg-transparent hover:text-indigo-700 font-semibold"
+              onClick={handleSubmit}
+            >
+              submit
+            </button>
+          </div>
+        </div>
+     
+      </div>
       <UserTable
         tableData={tableData}
         setTableData={setTableData}
         handleEdit={handleEdit}
       />
+
+
+     
     </>
   );
 };

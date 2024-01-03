@@ -10,25 +10,30 @@ const UserTable = ({ tableData, setTableData, handleEdit }) => {
 
   return (
     <>
-      <table>
+    <h2 className="text-3xl font-semibold text-center pt-5 pb-8"> Table Data</h2>
+      <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Password</th>
-            <th>Action</th>
+            <th className="py-2 px-4 border-b">Name</th>
+            <th className="py-2 px-4 border-b">Password</th>
+   
           </tr>
         </thead>
         <tbody>
-          {tableData.map((userData, index) => (
-            <tr key={index}>
-              <td>{userData.name}</td>
-              <td>{userData.password}</td>
-              <td>
-                <button onClick={() => handleEdit(index)}>Edit</button>
-                <button onClick={() => handleDelete(index)}>Delete</button>
-              </td>
-            </tr>
-          ))}
+          {tableData.map((userData, index) => {
+            return (
+              <tr className="text-center">
+                <td className="py-2 px-4 border-b">{userData.name}</td>
+                <td className="py-2 px-4 border-b">{userData.password}</td>
+                <td className="py-2 px-4 border-b flex gap-8 text-center">
+                  <button onClick={() => handleEdit(index)}>Edit</button>
+                  <button onClick={() => handleDelete(index)}>Delete</button>
+                </td>
+              </tr>
+            );
+          })}
+
+          {/* Add more rows as needed */}
         </tbody>
       </table>
     </>
